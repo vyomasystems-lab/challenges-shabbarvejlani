@@ -1,13 +1,11 @@
 # See LICENSE.vyoma for details
 
 TOPLEVEL_LANG ?= verilog
-
 PWD=$(shell pwd)
+VERILOG_SOURCES = $(PWD)/sudoku/trunk/rtl/piece.v  $(PWD)/sudoku/trunk/rtl/sudoku.v  $(PWD)/sudoku/trunk/rtl/minPiece.v  $(PWD)/sudoku/trunk/rtl/sudoku_search.v # provide your design path
 
-VERILOG_SOURCES = $(PWD)/               # provide your design path
-
-TOPLEVEL :=           # design file
-MODULE   :=     # test file
+TOPLEVEL := sudoku_search # design file
+MODULE   := test_sudoku_search # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
