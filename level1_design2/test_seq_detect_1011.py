@@ -23,4 +23,11 @@ async def test_seq_bug1(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk)
 
+    valid_seq = "1011"
+    for ii in range(len(valid_seq)):
+        await FallingEdge(dut.clk)
+        dut.inp_bit.value = int(valid_seq[ii])
+        #print(valid_seq[ii])
+    await FallingEdge(dut.clk)
+    print(dut.seq_seen.value)    
     cocotb.log.info('#### CTB: Develop your test here! ######')
